@@ -63,6 +63,7 @@
 			
 			// TODO 2 - Variable declarations 
 			var positionX = 0;
+			var points = 0;
 
 			
 			/* 
@@ -73,7 +74,8 @@
 			function update() {
 				//Increase positionX by 10 here!!!//
 				positionX = positionX + 10;
-
+				
+				
 				moveboxto(positionX);
 
 			};
@@ -85,6 +87,10 @@
 			*/
 			function handleBoxClick() {
 				positionX = 0;
+				
+				//your code to increase points by 1
+				points = points + 1;
+				changeBoxText(points);
 
 
 			};
