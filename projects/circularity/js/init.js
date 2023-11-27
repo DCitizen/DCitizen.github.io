@@ -31,11 +31,11 @@ var init = function (window) {
         circles.push(circle);
 
         // TODO 3 / 7 : Call the drawCircle() function 
-        drawCircle(1)
-        drawCircle(2)
-        drawCircle(3)
-        drawCircle(4)
-        drawCircle(5)
+        drawCircle()
+        drawCircle()
+        drawCircle()
+        drawCircle()
+        drawCircle()
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
