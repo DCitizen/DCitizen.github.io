@@ -32,8 +32,9 @@ var init = function (window) {
 
 
         // TODO 3 / 7 : Call the drawCircle() function 
-        while(drawCircle < 100) {
-            ++drawCircle;
+        var loopscompleted = 0;
+        while(loopscompleted < 100) {
+            loopscompleted++;
         }
 
         ////////////////////////////////////////////////////////////
@@ -67,8 +68,10 @@ var init = function (window) {
             game.checkCirclePosition(circles[4]);
 
             // TODO 9 : Iterate over the array
-           
-            
+            for (var i = 0; i < myArray.length; i++) {    
+                physikz.updatePosition(circles[i])
+                game.checkCirclePosition(circles[i]) 
+              }   
         }
     
         /* 
