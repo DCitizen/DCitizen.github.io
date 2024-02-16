@@ -45,6 +45,7 @@ $(document).ready(function () {
   }
 
   // TODO 2: add a new property to all data shapes
+//  for (var i = 0; i <= grade.length-1; i++){
   for (var i = 0; i <= grade.length-1; i++){
     var currentShapes = 0
     dataShapes[i] = currentShapes
@@ -55,14 +56,15 @@ $(document).ready(function () {
     dataShapes.color.push("blink")
   } else {
     return "spin";
-  }
+  } 
     
-  }
-  // TODO 3-a: add a function that handles the static display type
+// TODO 3-a: add a function that handles the static display type
   function handleStatic(data){
     setBackgroundWithObject(data)
     animationDetails.displayType = 1
   }
+
+  
 
   // TODO 4-a: add a function that handles the good display type
   
