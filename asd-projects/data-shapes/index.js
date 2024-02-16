@@ -66,10 +66,17 @@ $(document).ready(function () {
   
 
   // TODO 4-a: add a function that handles the good display type
-  
+  function handleGood(color, shape, repeat){
+    setBackgroundWithSimple(color, shape, repeat)
+    animationDetails.displayType = 2
+  }
 
   // TODO 5-a: add a function that handles the bad display type
-  
+  function handleBad(data, repeat){
+    repeat = repeat + 1
+    setBackgroundWithMixed(data, repeat)
+    animationDetails.displayType = 3
+  }
 
   /////////////////////////////////////////////////
   // BUTTON HANDLERS BELOW HERE (3-b, 4-b, 5-b) ///
@@ -83,12 +90,15 @@ $(document).ready(function () {
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
-    
+    currentShape = ["square", "triangle", "circle"]
+    handleGood()
   }
 
   function badDisplay() {
     // TODO 5-b: call your handleBad function
-    
+    var currentShape = ["square", "triangle", "circle"]
+    var repeat = [1, 2, 3]
+    handleBad(currentShape, repeat)
   }
 
   /////////////////////////////////////////////////
