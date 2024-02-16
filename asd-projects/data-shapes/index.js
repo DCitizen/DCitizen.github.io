@@ -47,12 +47,11 @@ $(document).ready(function () {
   // TODO 2: add a new property to all data shapes
 //  for (var i = 0; i <= grade.length-1; i++){
   for (var i = 0; i <= grade.length-1; i++){
-    var currentShapes = 0
-    dataShapes[i] = currentShapes
+    var currentShapes = dataShapes[1]
   }
-  if (color = "red") {
+  if (currentShapes = "red") {
     dataShapes.color.push("bounce")
-  } if (color = "blue") {
+  } if (currentShapes = "blue") {
     dataShapes.color.push("blink")
   } else {
     return "spin";
