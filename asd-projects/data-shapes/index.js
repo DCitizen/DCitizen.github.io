@@ -84,20 +84,20 @@ $(document).ready(function () {
 
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
-    dataShapes = currentShapes
+    currentShape = dataShapes[currentIndex]
     handleStatic(currentShapes)
   }
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
-    currentShape = ["square", "triangle", "circle"]
-    handleGood()
+    currentShape = dataShapes[currentIndex]
+    handleGood(currentShapes.color, currentShapes.shape, currentshape.repeat)
   }
 
   function badDisplay() {
     // TODO 5-b: call your handleBad function
-    var currentShape = ["square", "triangle", "circle"]
-    var repeat = [1, 2, 3]
+    currentShape = dataShapes[currentIndex]
+    var repeat = currentShape.repeat
     handleBad(currentShape, repeat)
   }
 
