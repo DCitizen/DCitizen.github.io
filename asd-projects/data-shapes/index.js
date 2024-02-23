@@ -87,13 +87,13 @@ $(document).ready(function () {
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
     currentShape = dataShapes[currentIndex]
-    handleStatic(currentShapes)
+    handleStatic(currentShape)
   }
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
     currentShape = dataShapes[currentIndex]
-    handleGood(currentShapes.color, currentShapes.shape, currentshape.repeat)
+    handleGood(currentShape.color, currentShape.shape, currentShape.repeat)
   }
 
   function badDisplay() {
