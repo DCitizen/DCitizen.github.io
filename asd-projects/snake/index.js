@@ -54,7 +54,8 @@ snake.head = snake.body[0];
   // TODO 4b-2: initialize the apple
 makeApple()
   // TODO 5a: Initialize the interval
-
+// start update interval
+updateInterval = setInterval(update, 100);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -65,14 +66,23 @@ makeApple()
  * On each update tick update each bubble's position and check for
  * collisions with the walls.
  */
-function update() {
-  // TODO 5b: Fill in the update function's code block
-}
+  function update() {
+    moveSnake();
+  
+    if (hasHitWall() || hasCollidedWithSnake()) {
+      endGame();
+    }
+  
+    if (hasCollidedWithApple()) {
+      handleAppleCollision();
+    }
+  }
+
 
 function checkForNewDirection(event) {
   /* 
   TODO 6b: Update snake.head.direction based on the value of activeKey.
-  
+
   BONUS: Only allow direction changes to take place if the new direction is
   perpendicular to the current direction
   */
@@ -251,7 +261,8 @@ function makeApple() {
 */
 function handleKeyDown(event) {
   // TODO 6a: make the handleKeyDown function register which key is pressed
-  
+  activeKey = event.which;
+  console.log(activeKey);
 }
 
 /* Given a gameSquare (which may be a snakeSquare or the apple), position
