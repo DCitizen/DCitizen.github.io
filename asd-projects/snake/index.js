@@ -149,20 +149,21 @@ function hasHitWall() {
   
   HINT: What will the row and column of the snake's head be if this were the case?
   */
-if (snake.head.row === -1) {
+if (snake.head.row === 21) {
 return true
 }
-else if (snake.head.row === 21) {
+else if (snake.head.row === -1) {
 return true
 }
-else if (snake.head.columns === -1) {
+else if (snake.head.columns === 21) {
 return true
 }
-else if (snake.head.columns ===  21){
+else if (snake.head.columns ===  -1){
 return true
-}
+} 
 
 return false
+
 }
 
 function hasCollidedWithApple() {
