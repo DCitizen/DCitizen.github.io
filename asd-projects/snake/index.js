@@ -133,11 +133,11 @@ function moveSnake() {
   }
   repositionSquare(snake.head);
   if (snake.head.direction === "up") {
-    snake.head.column = snake.head.column - 1;
+    snake.head.row = snake.head.row - 1;
   }
   repositionSquare(snake.head);
   if (snake.head.direction === "down") {
-    snake.head.column = snake.head.column + 1;
+    snake.head.row = snake.head.row + 1;
   }
   repositionSquare(snake.head);
 }
@@ -149,8 +149,20 @@ function hasHitWall() {
   
   HINT: What will the row and column of the snake's head be if this were the case?
   */
+if (snake.head.row === -1) {
+return true
+}
+else if (snake.head.row === 21) {
+return true
+}
+else if (snake.head.columns === -1) {
+return true
+}
+else if (snake.head.columns ===  21){
+return true
+}
 
-  return false;
+return false
 }
 
 function hasCollidedWithApple() {
@@ -197,7 +209,6 @@ function hasCollidedWithSnake() {
   
   HINT: Each part of the snake's body is stored in the snake.body Array. The
   head and each part of the snake's body also knows its own row and column.
-  
   */
 
   return false;
