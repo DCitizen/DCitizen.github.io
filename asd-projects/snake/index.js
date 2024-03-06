@@ -128,7 +128,7 @@ function moveSnake() {
   }
   repositionSquare(snake.head);
   if (snake.head.direction === "right") {
-    snake.head.column = snake.head.column - 1;
+    snake.head.column = snake.head.column + 1;
   }
   repositionSquare(snake.head);
   if (snake.head.direction === "up") {
@@ -136,7 +136,7 @@ function moveSnake() {
   }
   repositionSquare(snake.head);
   if (snake.head.direction === "down") {
-    snake.head.column = snake.head.column - 1;
+    snake.head.column = snake.head.column + 1;
   }
   repositionSquare(snake.head);
 }
