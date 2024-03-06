@@ -67,6 +67,9 @@ updateInterval = setInterval(update, 100);
  * collisions with the walls.
  */
   function update() {
+    if (hasCollidedWithApple()) {
+      handleAppleCollision();
+    }
     moveSnake();
   
     if (hasHitWall() || hasCollidedWithSnake()) {
@@ -155,10 +158,10 @@ return true
 else if (snake.head.row === -1) {
 return true
 }
-else if (snake.head.columns === 21) {
+else if (snake.head.column === 21) {
 return true
 }
-else if (snake.head.columns ===  -1){
+else if (snake.head.column ===  -1){
 return true
 } 
 
@@ -173,10 +176,16 @@ function hasCollidedWithApple() {
   
   HINT: Both the apple and the snake's head are aware of their own row and column
   */
-
-  return false;
+if (snake.head.column === apple.column) {
+  return true;
+} 
+if (snake.head.row === apple.row) {
+  return true;
 }
 
+return false
+
+}
 function handleAppleCollision() {
   // increase the score and update the score DOM element
   score++;
