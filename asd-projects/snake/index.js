@@ -100,6 +100,7 @@ function checkForNewDirection(event) {
     snake.head.direction = "down";
   }
 
+  console.log(snake.head.direction)
   // FILL IN THE REST
 }
 
