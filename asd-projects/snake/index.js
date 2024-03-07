@@ -117,6 +117,19 @@ function moveSnake() {
   column/row properties. 
   
   */
+  for (let i = snake.body.length - 1; i > 0; i--) {
+
+    var snakeSquare = snake.body[i];
+
+    var nextSnakeSquare = snake.body[i - 1];
+
+    snakeSquare.direction = nextSnakeSquare.direction;
+    snakeSquare.row = nextSnakeSquare.row;
+    snakeSquare.column = nextSnakeSquare.column;
+
+    repositionSquare(snakeSquare);
+}
+
 
   //Before moving the head, check for a new direction from the keyboard input
   checkForNewDirection();
@@ -176,14 +189,12 @@ function hasCollidedWithApple() {
   
   HINT: Both the apple and the snake's head are aware of their own row and column
   */
-if (snake.head.column === apple.column) {
-  return true;
-} 
-if (snake.head.row === apple.row) {
-  return true;
-}
-
-return false
+  if (snake.head.row === apple.row && snake.head.column === apple.column) {
+    return true
+  }
+  else {
+    return false
+  }
 
 }
 function handleAppleCollision() {
@@ -204,10 +215,38 @@ function handleAppleCollision() {
   If the tail is moving "down", place the next snakeSquare above it.
   etc...
   */
+
   var row = 0;
   var column = 0;
 
   // code to determine the row and column of the snakeSquare to add to the snake
+  function getNextSnakeSquareLocation(snake) {
+    // Get the current position and direction of the snake's tail
+    const currentRow = snake.tail.row;
+    const currentColumn = snake.tail.column;
+    const direction = snake.tail.direction;
+
+    // Initialize offsets based on the direction
+    let rowOffset = 0;
+    let columnOffset = 0;
+
+    // Calculate the offsets based on the direction
+    if (direction === "left") {
+        columnOffset = -1;
+    } else if (direction === "right") {
+        columnOffset = 1;
+    } else if (direction === "up") {
+        rowOffset = 1;
+    } else if (direction === "down") {
+        rowOffset = -1;
+    }
+
+    // Calculate the position of the next snakeSquare based on the direction and offsets
+    const nextRow = currentRow + rowOffset;
+    const nextColumn = currentColumn + columnOffset;
+
+    return { row: nextRow, column: nextColumn };
+}
 
   makeSnakeSquare(row, column);
 }
@@ -220,6 +259,19 @@ function hasCollidedWithSnake() {
   HINT: Each part of the snake's body is stored in the snake.body Array. The
   head and each part of the snake's body also knows its own row and column.
   */
+ const headRow = snake.head.row;
+ const headColumn = snake.head.column;
+
+ for (let i = 1; i < snake.body.length; i++) {
+
+     const currentSnakeSquare = snake.body[i];
+     const squareRow = currentSnakeSquare.row;
+     const squareColumn = currentSnakeSquare.column;
+
+     if (headRow === squareRow && headColumn === squareColumn) {
+         return true; // Collision detected
+     }
+ }
 
   return false;
 }
@@ -342,6 +394,7 @@ function getRandomAvailablePosition() {
     not occupied by a snakeSquare in the snake's body. If it is then set 
     spaceIsAvailable to false so that a new position is generated.
     */
+
   }
 
   return randomPosition;
