@@ -113,7 +113,7 @@ boardWandH = $("#board").width()
     if (walker.x === 390 ) { // the width of the board - the width of the walker
       walker.x -= walker.xSpeed
     }
-    if (walker.y === 390) { // the height of the board - the height of the walker (It didn't work when I tried to soft-code it, and I tried about 5 different combinations)
+    if (walker.y === 390) { // the height of the board - the height of the walker 
       walker.y -= walker.ySpeed
     }
   }
