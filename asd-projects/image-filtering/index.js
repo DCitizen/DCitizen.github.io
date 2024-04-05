@@ -33,7 +33,24 @@ function applyAndRender() {
 
 // TODO 1, 2 & 4: Create the applyFilter function here
 function applyFilter(){
+  for (let i = 0; i < image.length; i++) {
+    for (let j = 0; j < image[i].length; j++) {
+      // Step 2a: Retrieve string value from the 2D image array
+      let rgbString = image[i][j];
 
+      // Step 2b: Convert rgbString to array
+      let rgbNumbers = rgbStringToArray(rgbString);
+
+      // Step 2c: Alter RED value to maximum (255)
+      rgbNumbers[RED] = 255;
+
+      // Step 2d: Convert altered array back to string
+      rgbString = rgbArrayToString(rgbNumbers);
+
+      // Step 2e: Assign the altered rgbString back to the image array
+      image[i][j] = rgbString;
+    }
+  }
 }
 
 // TODO 7: Create the applyFilterNoBackground function
