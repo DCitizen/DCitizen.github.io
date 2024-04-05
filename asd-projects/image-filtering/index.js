@@ -35,19 +35,14 @@ function applyAndRender() {
 function applyFilter(){
   for (let i = 0; i < image.length; i++) {
     for (let j = 0; j < image[i].length; j++) {
-      // Step 2a: Retrieve string value from the 2D image array
-      let rgbString = image[i][j];
 
-      // Step 2b: Convert rgbString to array
+      let rgbString = image[i][j];
       let rgbNumbers = rgbStringToArray(rgbString);
 
-      // Step 2c: Alter RED value to maximum (255)
-      rgbNumbers[RED] = 255;
+      // Step 4c: Replace the line that changes rgbNumbers array with a call to filterFunction
+      filterFunction(rgbNumbers); // Call the filter function with rgbNumbers as the argument
 
-      // Step 2d: Convert altered array back to string
       rgbString = rgbArrayToString(rgbNumbers);
-
-      // Step 2e: Assign the altered rgbString back to the image array
       image[i][j] = rgbString;
     }
   }
@@ -60,8 +55,9 @@ function applyFilter(){
 
 
 // TODO 3: Create reddify function
-
-
+function reddify(arr) {
+  arr[RED] = 200;
+}
 // TODO 6: Create more filter functions
 
 
